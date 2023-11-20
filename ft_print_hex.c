@@ -3,54 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marnguye <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tvojemama.com <tvojemama.com@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 16:28:23 by marnguye          #+#    #+#             */
-/*   Updated: 2023/11/18 16:28:24 by marnguye         ###   ########.fr       */
+/*   Updated: 2023/11/20 14:46:44 by tvojemama.c      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	hex_len(unsigned int num)
+int ft_print_hex(long n, int i, char *c)
 {
-	int	len;
+	int count;
 
-	len = 0;
-	while (num != 0)
+	count = 0;
+	if (n < 0)
 	{
-		len++;
-		num /= 16;
+		ft_putchar('-');
+		count++;
+		n = -n;
 	}
-	return (len);
-}
-
-void	ft_puthex(unsigned int num, const char format)
-{
-	if (num >= 16)
+	if (n < i)
 	{
-		ft_puthex(num / 16, format);
-		ft_puthex(num % 16, format);
+		ft_putchar(c[n]);
+		count++;
 	}
 	else
 	{
-		if (num <= 9)
-			ft_putchar_fd((num + '0'), 1);
-		else
-		{
-			if (format == 'x')
-				ft_putchar_fd((num - 10 + 'a'), 1);
-			if (format == 'X')
-				ft_putchar_fd((num - 10 + 'A'), 1);
-		}
+		count += ft_print_hex(n / i, i, c);
+		count += ft_print_hex(n % i, i, c);
 	}
-}
-
-int	ft_print_hex(unsigned int num, const char format)
-{
-	if (num == 0)
-		return (write(1, "0", 1));
-	else
-		ft_puthex(num, format);
-	return (hex_len(num));
+	return (count);
 }

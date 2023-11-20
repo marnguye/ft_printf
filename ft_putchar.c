@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marnguye <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tvojemama.com <tvojemama.com@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 16:29:15 by marnguye          #+#    #+#             */
-/*   Updated: 2023/11/18 16:29:16 by marnguye         ###   ########.fr       */
+/*   Updated: 2023/11/20 14:40:27 by tvojemama.c      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(int c)
+int ft_putchar(char c)
 {
-	write(c, &c, 1);
-	return (1);
+	return (write(c, &c, 1));
 }
