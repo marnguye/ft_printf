@@ -22,7 +22,8 @@ SRC		=	ft_print_hex.c ft_print_percentage.c	\
 			ft_print_pointer.c ft_print_string.c	\
 			ft_print_string.c	ft_print_unsigned.c	\
 			ft_printf.c ft_printf.h ft_putchar.c	\
-			ft_putnbr.c ft_putstr.c	ft_printf.h			\
+			ft_putnbr.c ft_putstr.c	ft_printf.h		\
+			ft_print_number.c	\
 
 OBJS 		= $(SRC:.c=.o)
 

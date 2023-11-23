@@ -12,10 +12,10 @@
 
 #include "ft_printf.h"
 
-int ft_format(va_list arg, const char format)
+int	ft_format(va_list arg, const char format)
 {
-	int len;
-	char hex_format;
+	int		len;
+	char	hex_format;
 
 	len = 0;
 	hex_format = format;
@@ -30,17 +30,17 @@ int ft_format(va_list arg, const char format)
 	else if (format == 'u')
 		len += ft_print_unsigned(va_arg(arg, unsigned int));
 	else if (format == 'x' || format == 'X')
-		len += ft_print_hex(va_arg(arg, unsigned int), 16, &hex_format);
+		len += ft_print_hex(va_arg(arg, int));
 	else if (format == '%')
 		len += ft_print_percentage();
 	return (len);
 }
 
-int ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
-	int i;
-	va_list arg;
-	int print_len;
+	int		i;
+	va_list	arg;
+	int		print_len;
 
 	i = 0;
 	print_len = 0;

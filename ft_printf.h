@@ -24,8 +24,7 @@ int		ft_putnbr(int nb);
 void	ft_putstr(const char *str);
 int		ft_print_unsigned(unsigned int num);
 int		ft_print_pointer(unsigned long num);
-int		ft_print_hex(unsigned int num, const char format);
+int		ft_print_hex(int num);
 int		ft_print_percentage(void);
+int		ft_print_number(int num);
 #endif
-
-

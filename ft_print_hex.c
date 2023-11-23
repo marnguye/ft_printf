@@ -12,26 +12,34 @@
 
 #include "ft_printf.h"
 
-int ft_print_hex(long n, int i, char *c)
+void	write_char(char c)
 {
-	int count;
+	write(1, &c, 1);
+}
 
-	count = 0;
-	if (n < 0)
+void	hex(int num)
+{
+	int		remainder;
+	char	digit;
+
+	if (num != 0)
 	{
-		ft_putchar('-');
-		count++;
-		n = -n;
+		remainder = num % 16;
+		hex(num / 16);
+		if (remainder < 10)
+			digit = remainder + '0';
+		else
+			digit = remainder - 10 + 'A';
 	}
-	if (n < i)
-	{
-		ft_putchar(c[n]);
-		count++;
-	}
+	write_char(digit);
+}
+
+int	ft_print_hex(int num)
+{
+	if (num == 0)
+		write_char('0');
 	else
-	{
-		count += ft_print_hex(n / i, i, c);
-		count += ft_print_hex(n % i, i, c);
-	}
-	return (count);
+		hex(num);
+	write_char('\n');
+	return (num);
 }

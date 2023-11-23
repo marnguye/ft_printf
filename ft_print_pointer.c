@@ -12,10 +12,10 @@
 
 #include "ft_printf.h"
 
-int ft_pointer(unsigned long num)
+int	ft_pointer(unsigned long num)
 {
-	const char *s;
-	int i;
+	const char	*s;
+	int			i;
 
 	i = 0;
 	s = "0123456789abcdef";
@@ -29,9 +29,9 @@ int ft_pointer(unsigned long num)
 	return (i);
 }
 
-int ft_print_pointer(unsigned long num)
+int	ft_print_pointer(unsigned long num)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!num)
